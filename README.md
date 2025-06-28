@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Modern Website Template
 
 A beautiful, responsive website template built with React.js, Tailwind CSS, and Node.js. Features smooth scrolling navigation, animated components, and a modern design.
@@ -156,3 +157,6 @@ If you have any questions or need help, please open an issue on GitHub or contac
 ---
 
 Built with ❤️ using React, Tailwind CSS, and Node.js 
+=======
+# ImHire
+>>>>>>> 46497c04055dff57f094acee1f2f16c9d15c5869
