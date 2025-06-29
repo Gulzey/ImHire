@@ -1,6 +1,46 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 const FloatingElements = () => {
+  const sparkleCount = 12;
+  const sparkles = useMemo(() => Array.from({ length: sparkleCount }).map((_, i) => ({
+    top: Math.random() * 90 + 2,
+    left: Math.random() * 90 + 2,
+    color: i % 3 === 0 ? 'emerald' : i % 3 === 1 ? 'blue' : 'pink',
+  })), []);
+  // Draw lines only between close sparkles
+  const lines = [];
+  for (let i = 0; i < sparkleCount; i++) {
+    for (let j = i + 1; j < sparkleCount; j++) {
+      const dx = sparkles[i].left - sparkles[j].left;
+      const dy = sparkles[i].top - sparkles[j].top;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 18) {
+        lines.push(
+          <svg
+            key={`line-${i}-${j}`}
+            className="absolute pointer-events-none z-0"
+            style={{
+              top: `${Math.min(sparkles[i].top, sparkles[j].top)}%`,
+              left: `${Math.min(sparkles[i].left, sparkles[j].left)}%`,
+              width: `${Math.abs(sparkles[i].left - sparkles[j].left)}vw`,
+              height: `${Math.abs(sparkles[i].top - sparkles[j].top)}vh`,
+            }}
+          >
+            <line
+              x1={sparkles[i].left > sparkles[j].left ? `${Math.abs(sparkles[i].left - sparkles[j].left)}vw` : '0'}
+              y1={sparkles[i].top > sparkles[j].top ? `${Math.abs(sparkles[i].top - sparkles[j].top)}vh` : '0'}
+              x2={sparkles[i].left > sparkles[j].left ? '0' : `${Math.abs(sparkles[i].left - sparkles[j].left)}vw`}
+              y2={sparkles[i].top > sparkles[j].top ? '0' : `${Math.abs(sparkles[i].top - sparkles[j].top)}vh`}
+              stroke="#a5b4fc"
+              strokeWidth="1.2"
+              strokeDasharray="4 4"
+              opacity="0.35"
+            />
+          </svg>
+        );
+      }
+    }
+  }
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
       {/* Vibrant Blurred Blobs - now with blue and pink gradients too */}
@@ -56,18 +96,31 @@ const FloatingElements = () => {
       <div className="absolute top-1/6 left-1/2 w-32 h-px bg-gradient-to-r from-transparent via-emerald-200/80 to-transparent animate-slide-right"></div>
       <div className="absolute bottom-1/6 right-1/2 w-24 h-px bg-gradient-to-l from-transparent via-fuchsia-400/60 to-transparent animate-slide-left"></div>
 
-      {/* Green Sparkles (animated) */}
-      {[...Array(12)].map((_, i) => (
+      {/* Green, Blue, and Pink Sparkles (animated, glowing, with constellation lines) */}
+      {lines}
+      {sparkles.map((s, i) => (
         <div
-          key={i}
-          className={`absolute rounded-full bg-emerald-300/80 pointer-events-none animate-sparkle`}
+          key={`sparkle-${i}`}
+          className={`absolute rounded-full pointer-events-none animate-sparkle-slow z-10`}
           style={{
             width: `${Math.random() * 4 + 2}px`,
             height: `${Math.random() * 4 + 2}px`,
-            top: `${Math.random() * 90 + 2}%`,
-            left: `${Math.random() * 90 + 2}%`,
-            animationDelay: `${Math.random() * 6}s`,
-            opacity: 0.7
+            top: `${s.top}%`,
+            left: `${s.left}%`,
+            boxShadow:
+              s.color === 'emerald'
+                ? '0 0 6px 2px #34d39988, 0 0 12px 4px #10b98122'
+                : s.color === 'blue'
+                ? '0 0 6px 2px #60a5fa88, 0 0 12px 4px #3b82f622'
+                : '0 0 6px 2px #f472b688, 0 0 12px 4px #be185d22',
+            backgroundColor:
+              s.color === 'emerald'
+                ? 'rgba(52,211,153,0.8)'
+                : s.color === 'blue'
+                ? 'rgba(96,165,250,0.8)'
+                : 'rgba(244,114,182,0.8)',
+            animationDelay: `${Math.random() * 8}s`,
+            opacity: 0.8,
           }}
         ></div>
       ))}

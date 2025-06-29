@@ -90,8 +90,7 @@ const Contact = () => {
             <span className="block gradient-text">Touch</span>
           </h2>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
-            Been in a non-fault accident in Bristol? Contact us immediately for complete end-to-end accident management. 
-            From FNOL to post-repair satisfaction - all covered by the at-fault insurer.
+            Need help after an accident? Contact us for fast, professional support and a replacement vehicle—wherever you are in the UK.
           </p>
         </motion.div>
 

@@ -12,33 +12,33 @@ const About = () => {
   const features = [
     {
       icon: <Car size={24} />,
-      title: "End-to-End Management",
-      description: "Complete accident management from First Notification of Loss (FNOL) through to post-repair satisfaction. We handle everything for non-fault accident victims in Bristol."
+      title: "Nationwide Taxi Delivery",
+      description: "Replacement taxis delivered anywhere in the UK, fast."
     },
     {
       icon: <Shield size={24} />,
-      title: "At-Fault Insurer Coverage",
-      description: "100% of costs covered by the at-fault party's insurance. From courtesy cars to repairs and post-repair satisfaction - you never pay a penny."
+      title: "Taxi Drivers Fully Covered",
+      description: "All costs for taxi drivers are handled by the at-fault insurer."
     },
     {
       icon: <Clock size={24} />,
-      title: "24-Hour Bristol Response",
-      description: "Accidents don't wait for business hours. Our Bristol-based team is available 24/7 to get non-fault victims back on the road immediately."
+      title: "Rapid Response for Taxis",
+      description: "24/7 support and quick turnaround for every taxi claim."
     },
     {
       icon: <MapPin size={24} />,
-      title: "Bristol & Surrounding Areas",
-      description: "Serving Bristol and surrounding areas with local expertise and quick response times for all non-fault accident victims."
+      title: "Professional Taxi Team",
+      description: "Specialists in taxi accident management."
     },
     {
       icon: <Star size={24} />,
-      title: "Professional Bristol Service",
-      description: "Experienced Bristol team specializing in non-fault accident management with exceptional customer care and local knowledge."
+      title: "Seamless Taxi Process",
+      description: "From FNOL to completion, we have taxi drivers covered throughout."
     },
     {
       icon: <Award size={24} />,
-      title: "Complete Satisfaction Guarantee",
-      description: "From FNOL to post-repair satisfaction, we ensure complete customer satisfaction throughout the entire accident management process."
+      title: "Taxi Driver Focused",
+      description: "Clear updates and dedicated care for every taxi driver."
     }
   ]
 
@@ -52,13 +52,12 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
+          <h2 className="text-4xl lg:text-5xl font-bold mb-2 text-black">Why choose</h2>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            Why Choose
-            <span className="block gradient-text">Imhire Bristol</span>
+            <span className="block gradient-text">Imhire?</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Been in a non-fault accident in Bristol? We provide complete end-to-end accident management from FNOL to post-repair satisfaction. 
-            All costs covered by the at-fault insurer - you focus on recovery, we handle everything else.
+            Imhire is the top choice for taxi drivers. We're known for fast delivery, expert claims handling, and unmatched support—so you can stay on the road with total confidence.
           </p>
         </motion.div>
 
@@ -70,7 +69,7 @@ const About = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="professional-card p-8"
+              className="professional-card p-8 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:ring-4 hover:ring-emerald-200/40"
             >
               <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white mb-6">
                 {feature.icon}

@@ -13,51 +13,51 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "I've been in a non-fault accident in Bristol - how quickly can I get a courtesy car?",
-      answer: "We provide courtesy cars within 24 hours for non-fault accident victims in Bristol. In most cases, we can arrange delivery the same day if you contact us early enough."
+      question: "How quickly can I get a replacement taxi?",
+      answer: "Most taxi drivers receive a replacement vehicle within 24 hours, often the same day. We prioritise getting you back on the road as fast as possible."
     },
     {
-      question: "Do I need to pay anything for the end-to-end accident management service?",
-      answer: "No, you don't pay anything. The at-fault party's insurance covers all costs including courtesy cars, repairs, and post-repair satisfaction - from FNOL to completion."
+      question: "Do I pay anything for your service?",
+      answer: "No, all costs are covered by the at-fault insurer. You won't pay a penny for your replacement taxi or our management service."
     },
     {
-      question: "What documents do I need to provide for the accident management process?",
-      answer: "You'll need your driver's license, accident report, and details of the at-fault party's insurance. We handle all the paperwork and claims process with the insurance company."
+      question: "What do I need to provide?",
+      answer: "Just your taxi license and accident details. We'll handle all paperwork, claims, and communication with insurers."
     },
     {
-      question: "How long does the complete accident management process take?",
-      answer: "From FNOL to post-repair satisfaction, the process typically takes 2-4 weeks depending on repair complexity. We keep you updated throughout and ensure complete satisfaction."
+      question: "How long does the process take?",
+      answer: "Most cases are resolved in 2-4 weeks. We keep you updated at every stage and ensure you have a taxi for work throughout."
     },
     {
-      question: "What happens if the at-fault party's insurance refuses to pay?",
-      answer: "We have extensive experience dealing with insurance companies in Bristol. If there are any issues, our legal team will handle the dispute while you continue using the courtesy car."
+      question: "What if the insurer refuses to pay?",
+      answer: "Our expert team handles disputes and negotiations, so you're never left without a vehicle or support."
     },
     {
-      question: "Do you provide accident management services outside Bristol?",
-      answer: "We primarily serve Bristol and surrounding areas. Our local expertise and quick response times are optimized for the Bristol region."
+      question: "Do you cover all of the UK?",
+      answer: "Yes, we deliver and support taxi drivers nationwide, wherever your business operates."
     }
   ]
 
   const legalSections = [
     {
       icon: <FileText size={24} />,
-      title: "End-to-End Claims Process",
-      content: "We handle the entire accident management process from FNOL to post-repair satisfaction, ensuring you get the compensation you deserve."
+      title: "Complete Claims Support",
+      content: "We manage your claim from FNOL to completion."
     },
     {
       icon: <Shield size={24} />,
-      title: "Non-Fault Victim Rights",
-      content: "As a non-fault accident victim in Bristol, you have the right to complete accident management services. We ensure your rights are protected throughout."
+      title: "Your Rights",
+      content: "You're entitled to a replacement car and full support."
     },
     {
       icon: <Users size={24} />,
-      title: "Bristol Customer Support",
-      content: "Our dedicated Bristol team provides 24/7 support to help you through the complete accident management process and ensure you're never without transport."
+      title: "24/7 Customer Care",
+      content: "Our team is always here to help, nationwide."
     },
     {
       icon: <CreditCard size={24} />,
-      title: "100% At-Fault Insurer Coverage",
-      content: "Complete transparency with no upfront fees, deposits, or hidden charges. Everything from FNOL to post-repair satisfaction is covered by the at-fault insurance."
+      title: "No Upfront Costs",
+      content: "No fees, no deposits, no hidden charges."
     }
   ]
 
@@ -144,7 +144,7 @@ const FAQ = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-              className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300 border border-emerald-100"
+              className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8 hover:shadow-2xl hover:scale-105 hover:ring-4 hover:ring-emerald-200/40 transition-all duration-300 border border-emerald-100"
             >
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">

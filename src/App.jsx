@@ -4,7 +4,6 @@ import Hero from './components/Hero'
 import About from './components/About'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
-import FloatingElements from './components/FloatingElements'
 import WhatsAppChat from './components/WhatsAppChat'
 
 function App() {
@@ -21,9 +20,6 @@ function App() {
 
   return (
     <div className="min-h-screen">
-      {/* Background Elements */}
-      <FloatingElements />
-      
       {/* Navigation */}
       <Navbar isScrolled={isScrolled} />
       

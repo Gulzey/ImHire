@@ -2,10 +2,12 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDown, Play, Star, Car } from 'lucide-react'
 import taxiImage from '../assets/Taxi.png'
+import FloatingElements from './FloatingElements'
 
 const Hero = () => {
   return (
     <section id="home" className="section-padding min-h-screen flex items-center relative overflow-hidden">
+      <FloatingElements />
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -42,8 +44,7 @@ const Hero = () => {
                 transition={{ delay: 0.6, duration: 0.6 }}
                 className="text-xl text-gray-600 leading-relaxed"
               >
-                Been in a non-fault accident in Bristol? We provide end-to-end accident management from FNOL to complete repair and post-repair satisfaction. 
-                All costs covered by the at-fault insurer - you pay nothing.
+                Are you a taxi driver that has been in a non-fault accident? We provide end-to-end accident management to keep you on the road and on the job. All costs covered by the at-fault insurer.
               </motion.p>
             </div>
 
@@ -65,7 +66,7 @@ const Hero = () => {
                 onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
                 className="btn-secondary flex items-center justify-center space-x-2"
               >
-                <Play size={20} />
+                <ArrowDown size={20} />
                 <span>Learn More</span>
               </button>
             </motion.div>
@@ -113,7 +114,7 @@ const Hero = () => {
                 }}
               >
                 <div className="text-left text-white p-4 mt-12 ml-8 bg-emerald-600/80 rounded-lg shadow-2xl">
-                  <h3 className="text-2xl font-bold tracking-wide">Imhire • Bristol</h3>
+                  <h3 className="text-2xl font-bold tracking-wide">Imhire • Nationwide</h3>
                 </div>
                 <div className="text-left text-white mt-6 ml-8">
                   <ul className="space-y-2 text-base">

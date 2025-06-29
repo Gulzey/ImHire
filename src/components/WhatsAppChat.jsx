@@ -133,7 +133,7 @@ const WhatsAppChat = () => {
       {/* Floating WhatsApp Button */}
       <motion.button
         onClick={handleOpen}
-        className="fixed w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg flex items-center justify-center z-[9999] transition-all duration-300 hover:scale-110 relative"
+        className="fixed w-16 h-16 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full shadow-lg flex items-center justify-center z-[9999] transition-all duration-300 hover:scale-110 relative"
         style={{ right: '1.5rem', bottom: '1.5rem', left: 'auto', top: 'auto', position: 'fixed', zIndex: 9999 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -166,9 +166,9 @@ const WhatsAppChat = () => {
             {/* Mobile Full Screen Container */}
             <div className="md:hidden fixed inset-0 z-50 flex flex-col bg-white">
               {/* Header */}
-              <div className="bg-green-500 text-white p-4 flex items-center justify-between">
+              <div className="bg-emerald-700 text-white p-4 flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-emerald-800/40 rounded-full flex items-center justify-center">
                     <MessageCircle size={20} />
                   </div>
                   <div>
@@ -179,14 +179,14 @@ const WhatsAppChat = () => {
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={clearChat}
-                    className="hover:bg-white/20 rounded-full p-1 transition-colors text-xs"
+                    className="hover:bg-emerald-800/30 rounded-full p-1 transition-colors text-xs"
                     title="Clear chat"
                   >
                     Clear
                   </button>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="hover:bg-white/20 rounded-full p-1 transition-colors"
+                    className="hover:bg-emerald-800/30 rounded-full p-1 transition-colors"
                   >
                     <X size={20} />
                   </button>
@@ -295,9 +295,9 @@ const WhatsAppChat = () => {
             {/* Desktop Chat Container */}
             <div className="hidden md:flex md:flex-col md:w-full md:h-full">
               {/* Header */}
-              <div className="bg-green-500 text-white p-4 rounded-t-2xl flex items-center justify-between">
+              <div className="bg-emerald-700 text-white p-4 rounded-t-2xl flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-emerald-800/40 rounded-full flex items-center justify-center">
                     <MessageCircle size={20} />
                   </div>
                   <div>
@@ -308,14 +308,14 @@ const WhatsAppChat = () => {
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={clearChat}
-                    className="hover:bg-white/20 rounded-full p-1 transition-colors text-xs"
+                    className="hover:bg-emerald-800/30 rounded-full p-1 transition-colors text-xs"
                     title="Clear chat"
                   >
                     Clear
                   </button>
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="hover:bg-white/20 rounded-full p-1 transition-colors"
+                    className="hover:bg-emerald-800/30 rounded-full p-1 transition-colors"
                   >
                     <X size={20} />
                   </button>
@@ -413,7 +413,7 @@ const WhatsAppChat = () => {
                 {/* WhatsApp Direct Button - Desktop */}
                 <button
                   onClick={handleWhatsAppRedirect}
-                  className="w-full mt-3 bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-full flex items-center justify-center space-x-2 transition-colors"
+                  className="w-full mt-3 bg-emerald-700 hover:bg-emerald-800 text-white py-2 px-4 rounded-full flex items-center justify-center space-x-2 transition-colors"
                 >
                   <Phone size={16} />
                   <span>Chat on WhatsApp</span>
