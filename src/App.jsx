@@ -76,7 +76,7 @@ function App() {
           </div>
           
           <div className="border-t border-emerald-100 mt-8 pt-8 text-center text-emerald-500">
-            <p>&copy; 2024 Imhire Bristol. All rights reserved. | End-to-End Accident Management Services</p>
+            <p>&copy; 2024 Imhire Bristol. All rights reserved. | Website created by <a href='https://www.linkedin.com/in/guled-abdi-b30656194/?locale=es_ES&trk=org-employees'>Guled Abdi</a></p>
           </div>
         </div>
       </footer>
