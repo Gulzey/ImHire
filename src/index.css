@@ -42,4 +42,22 @@
   .btn-secondary {
     @apply border-2 border-emerald-600 text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 hover:text-white transition-all duration-200;
   }
+}
+
+@keyframes sparkle {
+  0% { opacity: 0; transform: scale(0.7); }
+  10% { opacity: 1; transform: scale(1.1); }
+  80% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.7); }
+}
+.animate-sparkle {
+  animation: sparkle 4s linear infinite;
+}
+
+@keyframes green-float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-18px); }
+}
+.animate-green-float {
+  animation: green-float 8s ease-in-out infinite;
 } 

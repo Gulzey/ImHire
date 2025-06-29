@@ -39,7 +39,7 @@ const Navbar = ({ isScrolled }) => {
               onError={e => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block'; }}
               style={{ display: 'block' }}
             />
-            <span style={{ display: 'none' }} className="text-xl font-bold gradient-text">Imhire</span>
+            <span className="text-2xl font-bold gradient-text">Imhire</span>
           </button>
 
           {/* Desktop Navigation */}

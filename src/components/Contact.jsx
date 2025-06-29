@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Mail, Phone, MapPin, Send, MessageCircle, Clock } from 'lucide-react'
@@ -17,6 +17,11 @@ const Contact = () => {
   })
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showThankYou, setShowThankYou] = useState(false)
+
+  useEffect(() => {
+    setShowThankYou(false);
+  }, []);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -39,6 +44,7 @@ const Contact = () => {
       });
       if (response.ok) {
         setFormData({ name: '', email: '', subject: '', message: '' });
+        setShowThankYou(true);
       } else {
         alert('There was a problem submitting your form. Please try again.');
       }
@@ -169,7 +175,7 @@ const Contact = () => {
               <div className="text-center text-emerald-400 mt-4">Sending your message...</div>
             )}
             {/* Thank You Message */}
-            {(!isSubmitting && formData.name === '' && formData.email === '' && formData.subject === '' && formData.message === '') && (
+            {showThankYou && !isSubmitting && (
               <div className="text-center text-emerald-400 mt-4">Thank you for your message! We'll get back to you soon.</div>
             )}
           </motion.div>

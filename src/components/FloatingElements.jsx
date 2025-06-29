@@ -2,39 +2,75 @@ import React from 'react'
 
 const FloatingElements = () => {
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      {/* Subtle Geometric Shapes */}
-      <div className="absolute top-20 left-10 w-16 h-16 border border-emerald-200/30 rounded-lg animate-float"></div>
-      <div className="absolute top-40 right-20 w-12 h-12 bg-emerald-50/40 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute bottom-40 left-20 w-20 h-20 border border-green-200/20 rounded-lg rotate-45 animate-float" style={{ animationDelay: '4s' }}></div>
-      
-      {/* Professional Sliding Elements */}
-      <div className="absolute top-1/4 left-0 w-24 h-24 bg-gradient-to-r from-emerald-50/30 to-green-50/30 rounded-lg animate-slide-right"></div>
-      <div className="absolute top-3/4 right-0 w-32 h-32 bg-gradient-to-r from-green-50/20 to-emerald-50/20 rounded-lg animate-slide-left"></div>
-      
-      {/* Subtle Spinning Elements */}
-      <div className="absolute top-1/3 left-1/4 w-6 h-6 border border-emerald-300/20 rounded-full animate-spin-slow"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-8 h-8 border border-green-300/20 rounded-full animate-spin-slow" style={{ animationDirection: 'reverse' }}></div>
-      
-      {/* Professional Bouncing Elements */}
-      <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-emerald-100/40 rounded-full animate-bounce-slow"></div>
-      <div className="absolute top-2/3 left-1/3 w-3 h-3 bg-green-100/40 rounded-full animate-bounce-slow" style={{ animationDelay: '1s' }}></div>
-      
-      {/* Elegant Geometric Shapes */}
-      <div className="absolute top-10 right-1/3 w-12 h-12 bg-gradient-to-r from-emerald-50/30 to-green-50/30 rotate-45 animate-float" style={{ animationDelay: '3s' }}></div>
-      <div className="absolute bottom-20 right-10 w-16 h-16 bg-gradient-to-r from-green-50/20 to-emerald-50/20 rotate-12 animate-float" style={{ animationDelay: '1.5s' }}></div>
-      
-      {/* Subtle Wave-like Elements */}
-      <div className="absolute top-1/2 left-0 w-48 h-16 bg-gradient-to-r from-transparent via-emerald-50/20 to-transparent rounded-full animate-slide-right"></div>
-      <div className="absolute bottom-1/4 right-0 w-36 h-12 bg-gradient-to-l from-transparent via-green-50/20 to-transparent rounded-full animate-slide-left"></div>
-      
-      {/* Professional Lines */}
-      <div className="absolute top-1/6 left-1/2 w-32 h-px bg-gradient-to-r from-transparent via-emerald-200/30 to-transparent animate-slide-right"></div>
-      <div className="absolute bottom-1/6 right-1/2 w-24 h-px bg-gradient-to-l from-transparent via-green-200/30 to-transparent animate-slide-left"></div>
-      
-      {/* Subtle Dots */}
-      <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-emerald-300/30 rounded-full animate-pulse-slow"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-green-300/30 rounded-full animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {/* Vibrant Blurred Blobs - now with blue and pink gradients too */}
+      <svg className="absolute top-[-10%] left-[-10%] w-[38vw] h-[28vw] opacity-35 mix-blend-lighten animate-float" style={{ filter: 'blur(40px)' }} viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="blob1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" stopColor="#4ade80" />
+            <stop offset="100%" stopColor="#16a34a" />
+          </radialGradient>
+        </defs>
+        <path fill="url(#blob1)" d="M90.8,-97.2C120.7,-85.2,143.7,-63.2,153.2,-37.2C162.7,-11.2,158.7,18.8,146.2,44.7C133.7,70.6,112.7,92.4,87.2,108.2C61.7,124,31.8,133.8,2.3,131.1C-27.2,128.4,-54.3,113.2,-77.2,94.2C-100.1,75.2,-118.7,52.4,-127.2,25.2C-135.7,-2,-134.1,-33.6,-121.2,-60.2C-108.3,-86.8,-84.1,-108.4,-56.7,-120.2C-29.3,-132,1.3,-134,29.8,-128.2C58.3,-122.4,116.7,-109.2,90.8,-97.2Z" transform="translate(150 100)" />
+      </svg>
+      <svg className="absolute bottom-[-20%] right-[-20%] w-[65vw] h-[50vw] opacity-50 mix-blend-lighten animate-float" style={{ filter: 'blur(70px)', animationDelay: '2s' }} viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="blob2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" stopColor="#22d3ee" />
+            <stop offset="100%" stopColor="#16a34a" />
+          </radialGradient>
+        </defs>
+        <path fill="url(#blob2)" d="M120.8,-97.2C150.7,-85.2,173.7,-63.2,183.2,-37.2C192.7,-11.2,188.7,18.8,176.2,44.7C163.7,70.6,142.7,92.4,117.2,108.2C91.7,124,61.8,133.8,32.3,131.1C1.8,128.4,-25.3,113.2,-48.2,94.2C-71.1,75.2,-89.7,52.4,-98.2,25.2C-106.7,-2,-105.1,-33.6,-92.2,-60.2C-79.3,-86.8,-55.1,-108.4,-27.7,-120.2C-0.3,-132,30.3,-134,58.8,-128.2C87.3,-122.4,145.7,-109.2,120.8,-97.2Z" transform="translate(150 100)" />
+      </svg>
+      {/* Blue Gradient Blob (top right, now wider) */}
+      <svg className="absolute top-[-12%] right-[-10%] w-[54vw] h-[32vw] opacity-30 mix-blend-lighten animate-float" style={{ filter: 'blur(48px)', animationDelay: '1.5s' }} viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="blobBlue" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" stopColor="#60a5fa" />
+            <stop offset="100%" stopColor="#6366f1" />
+          </radialGradient>
+        </defs>
+        <path fill="url(#blobBlue)" d="M90.8,-97.2C120.7,-85.2,143.7,-63.2,153.2,-37.2C162.7,-11.2,158.7,18.8,146.2,44.7C133.7,70.6,112.7,92.4,87.2,108.2C61.7,124,31.8,133.8,2.3,131.1C-27.2,128.4,-54.3,113.2,-77.2,94.2C-100.1,75.2,-118.7,52.4,-127.2,25.2C-135.7,-2,-134.1,-33.6,-121.2,-60.2C-108.3,-86.8,-84.1,-108.4,-56.7,-120.2C-29.3,-132,1.3,-134,29.8,-128.2C58.3,-122.4,116.7,-109.2,90.8,-97.2Z" transform="translate(150 100)" />
+      </svg>
+      {/* Blue Gradient Blob (bottom left) */}
+      <svg className="absolute bottom-[-10%] left-[-10%] w-[36vw] h-[22vw] opacity-30 mix-blend-lighten animate-float" style={{ filter: 'blur(36px)', animationDelay: '2.2s' }} viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="blobBlueLeft" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" stopColor="#bae6fd" />
+            <stop offset="100%" stopColor="#a5b4fc" />
+          </radialGradient>
+        </defs>
+        <path fill="url(#blobBlueLeft)" d="M90.8,-97.2C120.7,-85.2,143.7,-63.2,153.2,-37.2C162.7,-11.2,158.7,18.8,146.2,44.7C133.7,70.6,112.7,92.4,87.2,108.2C61.7,124,31.8,133.8,2.3,131.1C-27.2,128.4,-54.3,113.2,-77.2,94.2C-100.1,75.2,-118.7,52.4,-127.2,25.2C-135.7,-2,-134.1,-33.6,-121.2,-60.2C-108.3,-86.8,-84.1,-108.4,-56.7,-120.2C-29.3,-132,1.3,-134,29.8,-128.2C58.3,-122.4,116.7,-109.2,90.8,-97.2Z" transform="translate(150 100)" />
+      </svg>
+
+      {/* Neon Gradient Green Circle (smaller, slow float) */}
+      <div className="absolute top-1/3 left-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 via-green-400 to-cyan-400 opacity-70 shadow-2xl animate-green-float"
+        style={{ boxShadow: '0 0 40px 6px #4ade80, 0 0 80px 20px #22d3ee', transform: 'translateX(-50%)' }}></div>
+
+      {/* Subtle Glassmorphism Rectangle (left only) */}
+      <div className="absolute bottom-10 left-1/4 w-36 h-16 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-lg -rotate-6 animate-float" style={{ animationDelay: '1.5s' }}></div>
+
+      {/* Dots and Lines for Depth */}
+      <div className="absolute top-1/4 right-1/4 w-3 h-3 bg-emerald-300/80 rounded-full animate-pulse-slow"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-fuchsia-400/80 rounded-full animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-1/6 left-1/2 w-32 h-px bg-gradient-to-r from-transparent via-emerald-200/80 to-transparent animate-slide-right"></div>
+      <div className="absolute bottom-1/6 right-1/2 w-24 h-px bg-gradient-to-l from-transparent via-fuchsia-400/60 to-transparent animate-slide-left"></div>
+
+      {/* Green Sparkles (animated) */}
+      {[...Array(12)].map((_, i) => (
+        <div
+          key={i}
+          className={`absolute rounded-full bg-emerald-300/80 pointer-events-none animate-sparkle`}
+          style={{
+            width: `${Math.random() * 4 + 2}px`,
+            height: `${Math.random() * 4 + 2}px`,
+            top: `${Math.random() * 90 + 2}%`,
+            left: `${Math.random() * 90 + 2}%`,
+            animationDelay: `${Math.random() * 6}s`,
+            opacity: 0.7
+          }}
+        ></div>
+      ))}
     </div>
   )
 }
