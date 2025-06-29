@@ -33,6 +33,14 @@
   
   .professional-card {
     @apply bg-white rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300;
+    transition-property: box-shadow, transform, ring, border, filter;
+  }
+  
+  .professional-card:hover, .professional-card:focus-visible {
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10), 0 0 32px 8px rgba(16,185,129,0.10);
+    transform: scale(1.13) translateY(-10px);
+    border-color: #f3f4f6;
+    filter: none;
   }
   
   .btn-primary {
@@ -41,6 +49,18 @@
   
   .btn-secondary {
     @apply border-2 border-emerald-600 text-emerald-600 px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 hover:text-white transition-all duration-200;
+  }
+  
+  .legal-card {
+    @apply bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl border border-emerald-100 transition-all duration-300;
+    transition-property: box-shadow, transform, ring, border, filter;
+  }
+  
+  .legal-card:hover, .legal-card:focus-visible {
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10), 0 0 32px 8px rgba(16,185,129,0.10);
+    transform: scale(1.13) translateY(-10px);
+    border-color: #e0f2f1;
+    filter: none;
   }
 }
 

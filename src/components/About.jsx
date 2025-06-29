@@ -69,7 +69,7 @@ const About = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="professional-card p-8 transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:ring-4 hover:ring-emerald-200/40"
+              className="professional-card p-8"
             >
               <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white mb-6">
                 {feature.icon}

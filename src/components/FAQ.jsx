@@ -144,7 +144,7 @@ const FAQ = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-              className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8 hover:shadow-2xl hover:scale-105 hover:ring-4 hover:ring-emerald-200/40 transition-all duration-300 border border-emerald-100"
+              className="legal-card p-8"
             >
               <div className="flex items-start space-x-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDown, Play, Star, Car } from 'lucide-react'
 import taxiImage from '../assets/Taxi.png'
 import FloatingElements from './FloatingElements'
 
 const Hero = () => {
+  const [flipped, setFlipped] = useState(false);
+
   return (
     <section id="home" className="section-padding min-h-screen flex items-center relative overflow-hidden">
       <FloatingElements />
@@ -105,37 +107,83 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 rounded-3xl backdrop-blur-sm border border-emerald-200/20 flex flex-col items-start"
-                style={{
-                  backgroundImage: `url(${taxiImage})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat'
-                }}
+                className="absolute inset-0 flex items-center justify-center"
+                style={{ perspective: '1200px' }}
               >
-                <div className="text-left text-white p-4 mt-12 ml-8 bg-emerald-600/80 rounded-lg shadow-2xl">
-                  <h3 className="text-2xl font-bold tracking-wide">Imhire • Nationwide</h3>
-                </div>
-                <div className="text-left text-white mt-6 ml-8">
-                  <ul className="space-y-2 text-base">
-                    <li className="font-bold bg-emerald-600/70 px-3 py-1 rounded">• End-to-End Accident Management</li>
-                    <li className="font-bold bg-emerald-600/70 px-3 py-1 rounded">• FNOL to Post-Repair Satisfaction</li>
-                    <li className="font-bold bg-emerald-600/70 px-3 py-1 rounded">• At-Fault Insurer Covers All Costs</li>
-                  </ul>
+                <div
+                  className={`relative w-full h-full rounded-3xl cursor-pointer transition-transform duration-700 outline-none focus-visible:ring-2 focus-visible:ring-emerald-400`}
+                  style={{
+                    outline: 'none',
+                    transformStyle: 'preserve-3d',
+                    transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                    width: '100%',
+                    height: '100%',
+                  }}
+                  onClick={() => setFlipped(f => !f)}
+                  tabIndex={0}
+                  aria-label="Flip card for more info"
+                >
+                  {/* Front Side */}
+                  <div
+                    className="absolute inset-0 rounded-3xl bg-white/10 backdrop-blur-lg border-2 border-transparent hover:border-gradient-to-br hover:from-emerald-400 hover:via-blue-400 hover:to-pink-400 focus-visible:border-gradient-to-br focus-visible:from-emerald-400 focus-visible:via-blue-400 focus-visible:to-pink-400 shadow-2xl flex flex-col items-end justify-end p-8 transition-all duration-700 focus:outline-none focus-visible:outline-none"
+                    style={{
+                      backgroundImage: `url(${taxiImage})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+                      borderImage: 'none',
+                      backfaceVisibility: 'hidden',
+                    }}
+                  >
+                    <div className="bg-black/50 rounded-xl px-6 py-3 mb-6 shadow-lg backdrop-blur-md">
+                      <h3 className="text-3xl font-extrabold tracking-tight text-white mb-1 drop-shadow-lg">Imhire</h3>
+                      <p className="text-lg text-emerald-200 font-medium">Keeping Taxi Drivers on the Road</p>
+                    </div>
+                    <span className="text-xs text-white/60">Click to learn more</span>
+                  </div>
+                  {/* Back Side */}
+                  <div
+                    className="absolute inset-0 rounded-3xl bg-black/60 backdrop-blur-lg border-2 border-gradient-to-br from-emerald-400 via-blue-400 to-pink-400 shadow-2xl flex flex-col items-start justify-center p-10 transition-all duration-700"
+                    style={{
+                      transform: 'rotateY(180deg)',
+                      backfaceVisibility: 'hidden',
+                    }}
+                  >
+                    <h3 className="text-2xl font-extrabold tracking-tight mb-1 text-white">Imhire: Premium Taxi Accident Management</h3>
+                    <p className="text-sm text-emerald-200 mb-4 font-medium">Nationwide. Hassle-Free. For Taxi Drivers.</p>
+                    <ul className="space-y-2 text-base">
+                      <li className="flex items-center gap-2 font-semibold text-white/90"><span role='img' aria-label='taxi'>🚗</span> Replacement Taxi Delivered</li>
+                      <li className="flex items-center gap-2 font-semibold text-white/90"><span role='img' aria-label='tools'>🛠️</span> Repairs & Claims Handled</li>
+                      <li className="flex items-center gap-2 font-semibold text-white/90"><span role='img' aria-label='money'>💸</span> No Upfront Costs</li>
+                    </ul>
+                    <span className="text-xs text-white/60 mt-6">Click to go back</span>
+                  </div>
                 </div>
               </motion.div>
 
-              {/* Floating Elements */}
+              {/* Floating Elements - Green Circles Pop Out on Flip */}
               <motion.div
-                animate={{ x: [-20, 20, -20], y: [-10, 10, -10] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-10 right-10 w-16 h-16 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full opacity-80"
+                animate={{
+                  x: [-20, 20, -20],
+                  y: [-10, 10, -10],
+                  scale: flipped ? 0 : 1,
+                  opacity: flipped ? 0 : 0.8
+                }}
+                transition={{ duration: 0.4, type: 'spring', bounce: 0.2 }}
+                className="absolute top-10 right-10 w-16 h-16 bg-gradient-to-r from-emerald-400 to-green-500 rounded-full"
+                style={{ pointerEvents: 'none' }}
               ></motion.div>
-              
               <motion.div
-                animate={{ x: [20, -20, 20], y: [10, -10, 10] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-20 left-10 w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full opacity-80"
+                animate={{
+                  x: [20, -20, 20],
+                  y: [10, -10, 10],
+                  scale: flipped ? 0 : 1,
+                  opacity: flipped ? 0 : 0.8
+                }}
+                transition={{ duration: 0.4, type: 'spring', bounce: 0.2 }}
+                className="absolute bottom-20 left-10 w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full"
+                style={{ pointerEvents: 'none' }}
               ></motion.div>
             </div>
           </motion.div>
