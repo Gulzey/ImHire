@@ -64,6 +64,47 @@ const FAQ = () => {
   return (
     <section id="faq" className="section-padding bg-white">
       <div className="container-custom">
+        {/* Legal Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-center mb-12"
+          id="legal"
+        >
+          <h3 className="text-3xl font-bold mb-6">
+            Legal
+            <span className="block gradient-text">Information</span>
+          </h3>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-8 mb-20">
+          {legalSections.map((section, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+              className="legal-card p-8"
+            >
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                  {section.icon}
+                </div>
+                <div>
+                  <h4 className="text-xl font-semibold mb-3 text-gray-800">
+                    {section.title}
+                  </h4>
+                  <p className="text-gray-600 leading-relaxed">
+                    {section.content}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* FAQ Section */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -80,7 +121,6 @@ const FAQ = () => {
           </p>
         </motion.div>
 
-        {/* FAQ Section */}
         <div className="max-w-4xl mx-auto mb-20">
           <div className="space-y-4">
             {faqs.map((faq, index) => (
@@ -121,46 +161,6 @@ const FAQ = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-
-        {/* Legal Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mb-12"
-          id="legal"
-        >
-          <h3 className="text-3xl font-bold mb-6">
-            Legal
-            <span className="block gradient-text">Information</span>
-          </h3>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          {legalSections.map((section, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-              className="legal-card p-8"
-            >
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white flex-shrink-0">
-                  {section.icon}
-                </div>
-                <div>
-                  <h4 className="text-xl font-semibold mb-3 text-gray-800">
-                    {section.title}
-                  </h4>
-                  <p className="text-gray-600 leading-relaxed">
-                    {section.content}
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          ))}
         </div>
 
         {/* Contact CTA */}
