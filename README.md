@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-# Modern Website Template
+# ImHire - Bristol Accident Management Services
 
-A beautiful, responsive website template built with React.js, Tailwind CSS, and Node.js. Features smooth scrolling navigation, animated components, and a modern design.
+A modern, responsive website for ImHire's end-to-end accident management services in Bristol. Built with React.js, Tailwind CSS, and featuring an integrated WhatsApp chatbot for customer support.
 
 ## Features
 
@@ -13,7 +12,29 @@ A beautiful, responsive website template built with React.js, Tailwind CSS, and 
 - 🎪 **Animated Background**: Floating elements that move horizontally
 - 📝 **Contact Form**: Functional contact form with validation
 - ❓ **FAQ Section**: Expandable FAQ with legal information
+- 💬 **WhatsApp Chatbot**: Integrated AI-powered chatbot with WhatsApp integration
 - 🎯 **SEO Ready**: Optimized for search engines
+
+## WhatsApp Chatbot Features
+
+The website includes a sophisticated WhatsApp-integrated chatbot that provides:
+
+- **AI-Powered Responses**: Intelligent responses to common accident management queries
+- **Quick Action Buttons**: Pre-defined buttons for common questions (Courtesy Car, Insurance Help, Cost Info, Contact)
+- **WhatsApp Integration**: Direct connection to WhatsApp Business for human support
+- **Chat History**: Persistent chat history using localStorage
+- **Mobile Responsive**: Full-screen chat experience on mobile devices
+- **Real-time Typing Indicators**: Shows when the bot is "typing"
+- **Clear Chat Functionality**: Option to reset conversation
+
+### Chatbot Capabilities
+
+The chatbot can handle queries about:
+- Courtesy car arrangements
+- Insurance claim processes
+- Cost information (all services are free for non-fault accidents)
+- Contact information and support
+- General accident management questions
 
 ## Sections
 
@@ -21,6 +42,7 @@ A beautiful, responsive website template built with React.js, Tailwind CSS, and 
 2. **About Section**: Features and company information
 3. **FAQ Section**: Frequently asked questions and legal information
 4. **Contact Section**: Contact form and business information
+5. **WhatsApp Chatbot**: Floating chat widget with AI support
 
 ## Technologies Used
 
@@ -29,6 +51,7 @@ A beautiful, responsive website template built with React.js, Tailwind CSS, and 
 - **Icons**: Lucide React
 - **Backend**: Node.js with Express
 - **Styling**: Custom CSS with Tailwind utilities
+- **Chatbot**: Custom AI implementation with WhatsApp Business API integration
 
 ## Getting Started
 
@@ -42,7 +65,7 @@ A beautiful, responsive website template built with React.js, Tailwind CSS, and 
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd modern-website-template
+   cd ImHire
    ```
 
 2. **Install dependencies**
@@ -80,7 +103,8 @@ A beautiful, responsive website template built with React.js, Tailwind CSS, and 
 │   │   ├── About.jsx           # About section
 │   │   ├── FAQ.jsx             # FAQ and legal section
 │   │   ├── Contact.jsx         # Contact form and info
-│   │   └── FloatingElements.jsx # Animated background elements
+│   │   ├── FloatingElements.jsx # Animated background elements
+│   │   └── WhatsAppChat.jsx    # WhatsApp chatbot component
 │   ├── App.jsx                 # Main application component
 │   ├── main.jsx                # Application entry point
 │   └── index.css               # Global styles
@@ -92,6 +116,19 @@ A beautiful, responsive website template built with React.js, Tailwind CSS, and 
 ├── server.js                  # Node.js server
 └── README.md                  # This file
 ```
+
+## WhatsApp Integration Setup
+
+To configure the WhatsApp integration:
+
+1. **Update Phone Number**: In `src/components/WhatsAppChat.jsx`, replace the `phoneNumber` variable with your actual WhatsApp Business number:
+   ```javascript
+   const phoneNumber = '+441171234567' // Replace with your actual WhatsApp number
+   ```
+
+2. **Customize Responses**: Modify the `botResponses` object to match your business needs and common customer queries.
+
+3. **WhatsApp Business API**: For advanced features, consider integrating with the official WhatsApp Business API.
 
 ## Customization
 
@@ -119,10 +156,15 @@ Update the content in each component file:
 - `src/components/About.jsx` - About section and features
 - `src/components/FAQ.jsx` - FAQ questions and legal information
 - `src/components/Contact.jsx` - Contact information and form
+- `src/components/WhatsAppChat.jsx` - Chatbot responses and configuration
 
-### Animations
+### Chatbot Customization
 
-The website uses Framer Motion for animations. You can customize animations by modifying the motion components in each file.
+The chatbot can be customized by:
+- Adding new response patterns in the `botResponses` object
+- Modifying the `generateBotResponse` function for more complex logic
+- Updating quick action buttons
+- Changing the visual design and animations
 
 ## Available Scripts
 
@@ -156,7 +198,4 @@ If you have any questions or need help, please open an issue on GitHub or contac
 
 ---
 
-Built with ❤️ using React, Tailwind CSS, and Node.js 
-=======
-# ImHire
->>>>>>> 46497c04055dff57f094acee1f2f16c9d15c5869
+Built with ❤️ using React, Tailwind CSS, and Node.js for ImHire Bristol Accident Management Services

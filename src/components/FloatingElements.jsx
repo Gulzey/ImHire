@@ -2,7 +2,7 @@ import React from 'react'
 
 const FloatingElements = () => {
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {/* Subtle Geometric Shapes */}
       <div className="absolute top-20 left-10 w-16 h-16 border border-emerald-200/30 rounded-lg animate-float"></div>
       <div className="absolute top-40 right-20 w-12 h-12 bg-emerald-50/40 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>

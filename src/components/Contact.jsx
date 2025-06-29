@@ -47,7 +47,7 @@ const Contact = () => {
     {
       icon: <Phone size={24} />,
       title: "Call Us",
-      content: "+44 (0) 117 123 4567",
+      content: "+44 7947 232334",
       description: "24/7 Bristol emergency response"
     },
     {
@@ -221,26 +221,6 @@ const Contact = () => {
                   <span>Sunday</span>
                   <span>9:00 AM - 5:00 PM</span>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 1.2 }}
-              className="text-center"
-            >
-              <p className="text-lg font-semibold mb-4">Follow Us</p>
-              <div className="flex justify-center space-x-4">
-                {['Facebook', 'Twitter', 'Instagram', 'LinkedIn'].map((platform, index) => (
-                  <button
-                    key={platform}
-                    className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-200"
-                  >
-                    <span className="text-sm font-medium">{platform[0]}</span>
-                  </button>
-                ))}
               </div>
             </motion.div>
           </motion.div>

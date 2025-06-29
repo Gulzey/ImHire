@@ -5,6 +5,7 @@ import About from './components/About'
 import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import FloatingElements from './components/FloatingElements'
+import WhatsAppChat from './components/WhatsAppChat'
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -19,7 +20,7 @@ function App() {
   }, [])
 
   return (
-    <div className="relative min-h-screen">
+    <div className="min-h-screen">
       {/* Background Elements */}
       <FloatingElements />
       
@@ -54,13 +55,6 @@ function App() {
                 Professional end-to-end accident management service for non-fault accident victims in Bristol. 
                 From FNOL to post-repair satisfaction - all costs covered by the at-fault insurer.
               </p>
-              <div className="flex space-x-4">
-                {['Facebook', 'Twitter', 'Instagram', 'LinkedIn'].map((platform) => (
-                  <button key={platform} className="w-10 h-10 bg-emerald-50 rounded-full flex items-center justify-center hover:bg-emerald-100 transition-colors">
-                    <span className="text-sm font-medium text-emerald-700">{platform[0]}</span>
-                  </button>
-                ))}
-              </div>
             </div>
             
             {/* Quick Links */}
@@ -78,7 +72,7 @@ function App() {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-emerald-900">Contact</h4>
               <div className="space-y-2 text-emerald-700">
-                <p>+44 (0) 117 123 4567</p>
+                <p>+44 7947 232334</p>
                 <p>info@imhire.com</p>
                 <p>123 Business Ave, Bristol</p>
               </div>
@@ -90,6 +84,9 @@ function App() {
           </div>
         </div>
       </footer>
+      
+      {/* WhatsApp Chatbot */}
+      <WhatsAppChat />
     </div>
   )
 }
