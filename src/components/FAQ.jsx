@@ -4,11 +4,9 @@ import { useInView } from 'react-intersection-observer'
 import { ChevronDown, FileText, Shield, Users, CreditCard } from 'lucide-react'
 
 const FAQ = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  })
-
+  // Separate refs for Legal and FAQ
+  const [legalRef, legalInView] = useInView({ triggerOnce: true, threshold: 0.1 })
+  const [faqRef, faqInView] = useInView({ triggerOnce: true, threshold: 0.1 })
   const [openFaq, setOpenFaq] = useState(null)
 
   const faqs = [
@@ -64,11 +62,12 @@ const FAQ = () => {
   return (
     <section id="faq" className="section-padding bg-white">
       <div className="container-custom">
-        {/* Legal Section */}
+        {/* Legal Section (now first) */}
         <motion.div
+          ref={legalRef}
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          animate={legalInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
           className="text-center mb-12"
           id="legal"
         >
@@ -83,8 +82,8 @@ const FAQ = () => {
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+              animate={legalInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
               className="legal-card p-8"
             >
               <div className="flex items-start space-x-4">
@@ -104,11 +103,11 @@ const FAQ = () => {
           ))}
         </div>
 
-        {/* FAQ Section */}
+        {/* FAQ Section (now after Legal) */}
         <motion.div
-          ref={ref}
+          ref={faqRef}
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={faqInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -121,52 +120,45 @@ const FAQ = () => {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto mb-20">
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gray-50 rounded-xl overflow-hidden border border-gray-100"
+        {/* FAQ List */}
+        <div className="max-w-3xl mx-auto mb-20">
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={faqInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              className="mb-6 bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden"
+            >
+              <button
+                className="w-full flex justify-between items-center px-6 py-5 text-left focus:outline-none focus:bg-emerald-50 hover:bg-emerald-50 transition-colors"
+                onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                aria-expanded={openFaq === index}
               >
-                <button
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-emerald-50 transition-colors duration-200"
-                >
-                  <span className="font-semibold text-gray-800">{faq.question}</span>
-                  <ChevronDown 
-                    size={20} 
-                    className={`text-emerald-600 transition-transform duration-200 ${
-                      openFaq === index ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                <AnimatePresence>
-                  {openFaq === index && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="px-6 pb-4 text-gray-600 leading-relaxed">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
+                <span className="text-lg font-semibold text-gray-800">{faq.question}</span>
+                <ChevronDown className={`ml-4 transition-transform duration-300 ${openFaq === index ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {openFaq === index && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="px-6 pb-5 text-gray-600"
+                  >
+                    {faq.answer}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
         </div>
 
         {/* Contact CTA */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={faqInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.2 }}
           className="mt-16 text-center bg-gradient-to-r from-emerald-600 to-green-700 rounded-3xl p-8 lg:p-12 text-white"
         >
