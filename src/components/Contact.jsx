@@ -91,15 +91,13 @@ const Contact = () => {
               <span>Request Accident Management</span>
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form action="https://formspree.io/f/mnnaaqze" method="POST" className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">Name</label>
                   <input
                     type="text"
                     name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-white/60"
                     placeholder="Your name"
@@ -110,8 +108,6 @@ const Contact = () => {
                   <input
                     type="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
                     required
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-white/60"
                     placeholder="your@email.com"
@@ -124,8 +120,6 @@ const Contact = () => {
                 <input
                   type="text"
                   name="subject"
-                  value={formData.subject}
-                  onChange={handleInputChange}
                   required
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-white/60"
                   placeholder="Non-fault accident management request"
@@ -136,8 +130,6 @@ const Contact = () => {
                 <label className="block text-sm font-medium mb-2">Message</label>
                 <textarea
                   name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
                   required
                   rows={6}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-white/60 resize-none"
@@ -147,20 +139,10 @@ const Contact = () => {
               
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-emerald-600 to-green-700 text-white py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-emerald-600 to-green-700 text-white py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    <span>Sending...</span>
-                  </>
-                ) : (
-                  <>
-                    <Send size={20} />
-                    <span>Request Accident Management</span>
-                  </>
-                )}
+                <Send size={20} />
+                <span>Request Accident Management</span>
               </button>
             </form>
           </motion.div>
