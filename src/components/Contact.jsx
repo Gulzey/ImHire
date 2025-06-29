@@ -26,16 +26,27 @@ const Contact = () => {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    alert('Thank you for your message! We\'ll get back to you soon.')
-    setFormData({ name: '', email: '', subject: '', message: '' })
-    setIsSubmitting(false)
-  }
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const response = await fetch('https://formspree.io/f/mnnaaqze', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        alert('There was a problem submitting your form. Please try again.');
+      }
+    } catch (error) {
+      alert('There was a problem submitting your form. Please try again.');
+    }
+    setIsSubmitting(false);
+  };
 
   const contactInfo = [
     {
@@ -91,7 +102,7 @@ const Contact = () => {
               <span>Request Accident Management</span>
             </h3>
             
-            <form action="https://formspree.io/f/mnnaaqze" method="POST" className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">Name</label>
@@ -99,6 +110,8 @@ const Contact = () => {
                     type="text"
                     name="name"
                     required
+                    value={formData.name}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-white/60"
                     placeholder="Your name"
                   />
@@ -109,6 +122,8 @@ const Contact = () => {
                     type="email"
                     name="email"
                     required
+                    value={formData.email}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-white/60"
                     placeholder="your@email.com"
                   />
@@ -121,6 +136,8 @@ const Contact = () => {
                   type="text"
                   name="subject"
                   required
+                  value={formData.subject}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-white/60"
                   placeholder="Non-fault accident management request"
                 />
@@ -132,6 +149,8 @@ const Contact = () => {
                   name="message"
                   required
                   rows={6}
+                  value={formData.message}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-white placeholder-white/60 resize-none"
                   placeholder="Tell us about your non-fault accident in Bristol and when you need our end-to-end accident management service..."
                 />
@@ -140,11 +159,19 @@ const Contact = () => {
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-emerald-600 to-green-700 text-white py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
+                disabled={isSubmitting}
               >
                 <Send size={20} />
-                <span>Request Accident Management</span>
+                <span>{isSubmitting ? 'Sending...' : 'Request Accident Management'}</span>
               </button>
             </form>
+            {isSubmitting && (
+              <div className="text-center text-emerald-400 mt-4">Sending your message...</div>
+            )}
+            {/* Thank You Message */}
+            {(!isSubmitting && formData.name === '' && formData.email === '' && formData.subject === '' && formData.message === '') && (
+              <div className="text-center text-emerald-400 mt-4">Thank you for your message! We'll get back to you soon.</div>
+            )}
           </motion.div>
 
           {/* Contact Information */}
